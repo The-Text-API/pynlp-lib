@@ -1,5 +1,5 @@
 # PyNLP Lib (or PyNLPL, pronounced "pineapple")
-PyNLP Lib is an open source Python NLP library that provides functionality for both web and local development. It offers a wide range of functionality from text analysis to audio transcription to (planned) language generation. Also called "PyNLPL" (actually this was taken too), "PyNLP-L", "PyNLP-Lib", "PyNLPLib" (the official package name), or "PyNLP Library". This package would have been named PyNLP if that name wasn't taken by a third party wrapper library for Stanford NLP.
+PyNLP Lib is an open source Python Natural Language Processing library that provides functionality for both web and local development. It offers a wide range of functionality from text analysis to audio transcription to (planned) language generation. Also called "PyNLPL" (actually this was taken too), "PyNLP-L", "PyNLP-Lib", "PyNLPLib" (the official package name), or "PyNLP Library". This package would have been named PyNLP if that name wasn't taken by a third party wrapper library for Stanford NLP.
 
 __*IF YOU ARE LOOKING FOR THE STANFORD NLP PACKAGE GO TO THE OFFICIAL STANFORD NLP PYTHON PACKAGE*__ - [Stanza](https://stanfordnlp.github.io/stanza/).
 
