@@ -131,4 +131,3 @@ dmypy.json
 # for this project
 *.mp3
 .pypirc
-*.toml

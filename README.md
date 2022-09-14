@@ -13,6 +13,8 @@ __*IF YOU ARE LOOKING FOR THE STANFORD NLP PACKAGE GO TO THE OFFICIAL STANFORD N
 - [Local Backends for PyNLPL](#local-backends-for-pynlpl)
 - [Roadmap for PyNLP Lib Development](#roadmap-for-pynlp-lib-development)
 - [Timeline for PyNLP Lib so far](#timeline-for-pynlp-lib-development-so-far)
+- [Contribution Guidelines](#contribution-guidelines)
+- [How to Test Locally](#how-to-test-locally)
 
 ## PyNLP Library Installation
 PyNLP-Lib can be installed from pip with the line
@@ -209,3 +211,16 @@ __This roadmap assumes no one helps add to this open source library! However, we
 
 ## Timeline for PyNLP Lib Development so far
 * August 2022 - Initial Beta Release
+
+# Contribution Guidelines
+* Remember to update requirements in `pyproject.toml`
+* Remember to update version in `pyproject.toml`
+* Don't add these to git until you are done with your update, use them to create different wheel files to test locally at first
+
+## How to Test Locally
+* Run `python -m build` in the folder that contains `pyproject.toml`
+    * this will produce a `dist` folder with a `.whl` file, copy the relative path
+* Run `pip install <path to whl>`
+    * You have to run `pip uninstall pynlp-lib` between tests of each update to remove it from the cache
+
+## How to Create a Pull Request

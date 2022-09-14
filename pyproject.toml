@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "deepgram-sdk", "requests", "spacy", "spacytextblob"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pynlp-lib"
+version = "0.1.4"
+authors = [
+  { name="Yujian Tang", email="yujian@thetextapi.com" },
+]
+description = "PyNLP Lib is an open source Python NLP library that provides functionality for both web and local development"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/The-Text-API/pynlp-lib"
+"Bug Tracker" = "https://github.com/The-Text-API/pynlp-lib/issues"

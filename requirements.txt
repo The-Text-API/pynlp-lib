@@ -1,2 +1,4 @@
 requests
 deepgram-sdk
+spacy
+spacytextblob
