@@ -14,6 +14,7 @@ async def main():
         # ...or replace mimetype as appropriate
         source = {'buffer': audio, 'mimetype': 'audio/mp3'}
         response = await deepgram.transcription.prerecorded(source, {'punctuate': True})
+        assert response
         print(json.dumps(response, indent=4))
 
 asyncio.run(main())
