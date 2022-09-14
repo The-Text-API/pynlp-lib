@@ -1,6 +1,7 @@
 # TODO: implement spaCy
 class Spacy():
     def __init__(self, text = None, spacy_model_name = 'en_core_web_sm'):
+        '''Initializes a spaCy model, creates a doc if text is passed'''
         import spacy
         if not spacy.util.is_package(spacy_model_name):
             spacy.cli.download(spacy_model_name)
@@ -9,18 +10,27 @@ class Spacy():
             self.doc = self.nlp(text)
 
     def get_lemmas(self, text = None):
+        '''Return a list of lemmas for each word in the text'''
         if text:
             self.doc = self.nlp(text)
         return [token.lemma_ for token in self.doc]
 
     # fine = fine grained
     def get_parts_of_speech(self, text = None, fine = False):
+        '''Returns a list of tuples of the word and its part of speech,
+         allows for fine-grained POS tagging'''
         if text:
             self.doc = self.nlp(text)
         if not fine:
-            return [token.pos_ for token in self.doc]
+            return [(token.text, token.pos_) for token in self.doc]
         else:
-            return [token.tag_ for token in self.doc]
+            return [(token.text, token.tag_) for token in self.doc]
+    
+    def extract_ner(self, text = None):
+        '''Returns a list of tuples of the entity and its category'''
+        if text:
+            self.doc = self.nlp(text)
+        return [(token.text, token.label_) for token in self.doc.ents]
     
 # TODO: implement NLTK
 # TODO: implement Stanza
