@@ -44,3 +44,14 @@ class Stanza_English_default():
     '''segments by sentences only. returns list of strings'''
     self.__validate_text(text)
     return[sentence.text for sentence in self.document.sentences]
+
+  def pos_tagging(self, text = None):
+    ''''''
+    self.__validate_text(text)
+    return[f"WORD: {word.text}, UPOS: {word.upos}, XPOS: {word.xpos}" for word in self.document.iter_words()]
+
+
+
+
+# text_for_testing = "PyNLP is the universal open source NLP library for Python. It is maintained by The Text API team."
+# print(Stanza_English_default(text_for_testing).pos_tagging())
