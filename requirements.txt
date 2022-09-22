@@ -3,3 +3,4 @@ deepgram-sdk
 spacy
 spacytextblob
 stanza
+pytest
