@@ -46,6 +46,19 @@ class Stanza_English_default():
     return[sentence.text for sentence in self.document.sentences]
 
   def pos_tagging(self, text = None):
-    ''''''
+    '''returns list of words and their part of speech tags'''
     self.__validate_text(text)
-    return[f"WORD: {word.text}, UPOS: {word.upos}, XPOS: {word.xpos}" for word in self.document.iter_words()]
+    return[f"WORD: {word.text}, UPOS: {word.upos}, XPOS: {word.xpos} " for word in self.document.iter_words()]
+
+  def text_lemmatization(self, text = None):
+    '''returns list of root words for text data'''
+    self.__validate_text(text)
+    return [
+        f'WORD: {word.text}, LEMMA: {word.lemma} ' for sent in self.document.sentences
+        for word in sent.words
+    ]
+
+  def dependency_parsing(self, text = None):
+    '''returns list of ranking if tokens in text data'''
+    self.__validate_text(text)
+    return[f'ID: {word.id}, WORD: {word.text}, THREAD ID: {word.head}, THREAD: {sent.words[word.head-1].text if word.head > 0 else "root"}, DEPREL: {word.deprel} ' for sent in self.document.sentences for word in sent.words]

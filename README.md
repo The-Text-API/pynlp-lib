@@ -229,6 +229,6 @@ __This roadmap assumes no one helps add to this open source library! However, we
 ## How to use PyTest for stanza_test.py
 1)install pytest library
 2)in the command line type:
-        pytest <file-structure to stanza_test.py>
+        pytest <file structure to test file location>
         example: pytest .\pynlp-lib\tests\stanza_test.py
 3) pytest will test this file/function and report back passed or failed
