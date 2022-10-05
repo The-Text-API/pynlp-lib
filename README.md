@@ -39,7 +39,7 @@ async def main():
     # Initializes the Deepgram SDK
     # Open the audio file of https://www.youtube.com/watch?v=sQuFl0PSoXo
     # download with youtube_dl script, found on
-    # github here: https://gist.github.com/ytang07/9b8317f268ffcf97cd47950aa7f94282 
+    # github here: https://gist.github.com/ytang07/9b8317f268ffcf97cd47950aa7f94282
     with open("./tests/Watch a professional software engineer live code a web scraper.mp3", 'rb') as audio:
         # ...or replace mimetype as appropriate
         source = {'buffer': audio, 'mimetype': 'audio/mp3'}
@@ -110,7 +110,7 @@ test()
 ```
 
 ## External Documentation for PyNLP Lib
-This section includes external documentation for the tools used in PyNLP Lib. 
+This section includes external documentation for the tools used in PyNLP Lib.
 
 ### The Text API
 Included in Beta
@@ -175,7 +175,7 @@ Coming in 2023
 Coming in 2023
 
 ## PyNLP-Lib functionality
-PyNLPL is the comprehensive module for NLP in Python. It is an open source NLP module with multiple backends. Currently, PyNLP Lib is maintained by the team at [The Text API](https://www.thetextapi.com). 
+PyNLPL is the comprehensive module for NLP in Python. It is an open source NLP module with multiple backends. Currently, PyNLP Lib is maintained by the team at [The Text API](https://www.thetextapi.com).
 
 As of the August 2022 release, PyNLP Lib includes functionality for online text and audio processing. See [Roadmap](#roadmap-for-pynlp-lib-development) for planned future functionality. Ideally, we will add Natural Language Generation, Natural Language Understanding, Optical Character Recognition, and Conversational AI backends as well as additional backends for the existing text/audio features through 2023.
 
@@ -224,3 +224,11 @@ __This roadmap assumes no one helps add to this open source library! However, we
     * You have to run `pip uninstall pynlp-lib` between tests of each update to remove it from the cache
 
 ## How to Create a Pull Request
+
+
+## How to use PyTest for stanza_test.py
+1)install pytest library
+2)in the command line type:
+        pytest <file structure to test file location>
+        example: pytest .\pynlp-lib\tests\stanza_test.py
+3) pytest will test this file/function and report back passed or failed
