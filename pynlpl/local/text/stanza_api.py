@@ -52,9 +52,9 @@ class Stanza_English_default():
     '''
     self.__validate_text(text)
     if not fine:
-      return [f"WORD: {word.text}, XPOS: {word.xpos}"for word in self.document.iter_words()]
+      return [f"WORD: {word.text}, UPOS: {word.upos}"for word in self.document.iter_words()]
     else:
-      return[f"WORD: {word.text}, UPOS: {word.upos}" for word in self.document.iter_words()]
+      return[f"WORD: {word.text}, XPOS: {word.xpos}" for word in self.document.iter_words()]
 
   def text_lemmatization(self, text = None):
     '''returns list of root words for text data'''
