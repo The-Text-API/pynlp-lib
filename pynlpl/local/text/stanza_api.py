@@ -21,7 +21,6 @@ class Stanza_English_default():
     """
   def __init__(self, text: str = None, stanza_pipeline: str = 'en'):
     '''Initializes an English Stanza NLP language model, creates a document data object if text is passed'''
-    stanza.download(lang='en')
     self.nlp = stanza.Pipeline(stanza_pipeline)
     if text:
       self.document = self.nlp(text)
