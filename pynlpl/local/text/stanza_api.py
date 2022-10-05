@@ -1,3 +1,4 @@
+import stanza
 
 class Stanza_English_default():
   """Implements an abstracted version of the Stanza NLP library in English.
@@ -20,7 +21,6 @@ class Stanza_English_default():
     """
   def __init__(self, text: str = None, stanza_pipeline: str = 'en'):
     '''Initializes an English Stanza NLP language model, creates a document data object if text is passed'''
-    import stanza
     stanza.download(lang='en')
     self.nlp = stanza.Pipeline(stanza_pipeline)
     if text:
@@ -45,10 +45,20 @@ class Stanza_English_default():
     self.__validate_text(text)
     return[sentence.text for sentence in self.document.sentences]
 
-  def pos_tagging(self, text = None):
-    '''returns list of words and their part of speech tags'''
+  def pos_tagging(self, text = None, fine=False):
+    '''returns list of words and their part of speech tags
+    user can choose:
+    fine grained / fine = True / returns treebank-specific POS tags
+    course grained / fine = False / returns universal POS tags
+    '''
     self.__validate_text(text)
-    return[f"WORD: {word.text}, UPOS: {word.upos}, XPOS: {word.xpos} " for word in self.document.iter_words()]
+    return [
+        f"WORD: {word.text}, XPOS: {word.xpos}"
+        for word in self.document.iter_words()
+    ] if fine else [
+        f"WORD: {word.text}, UPOS: {word.upos}"
+        for word in self.document.iter_words()
+    ]
 
   def text_lemmatization(self, text = None):
     '''returns list of root words for text data'''
@@ -59,6 +69,11 @@ class Stanza_English_default():
     ]
 
   def dependency_parsing(self, text = None):
-    '''returns list of ranking if tokens in text data'''
+    '''The “id” property will return its index in the sentence.
+    Please note that this index is 1-based for the actual words in the sentence.
+    The “thread id” property returns the id of the root (head) word in the sentence.
+    The “thread” property will list the root word.
+    The “deprel”p roperty (short for dependency relations) returns the relationship to the root word. '''
     self.__validate_text(text)
-    return[f'ID: {word.id}, WORD: {word.text}, THREAD ID: {word.head}, THREAD: {sent.words[word.head-1].text if word.head > 0 else "root"}, DEPREL: {word.deprel} ' for sent in self.document.sentences for word in sent.words]
+    return[f'ID: {word.id}, WORD: {word.text}, THREAD ID: {word.head}, THREAD: {sent.words[word.head-1].text if word.head > 0 else "root"}, DEPREL: {word.deprel} '
+           for sent in self.document.sentences for word in sent.words]
