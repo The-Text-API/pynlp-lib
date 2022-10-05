@@ -71,9 +71,9 @@ class Stanza_English_default():
   def dependency_parsing(self, text = None):
     '''The “id” property will return its index in the sentence.
     Please note that this index is 1-based for the actual words in the sentence.
-    The “thread id” property returns the id of the root (head) word in the sentence.
-    The “thread” property will list the root word.
-    The “deprel”p roperty (short for dependency relations) returns the relationship to the root word. '''
+    The “thread id” property returns the id of the root (head) word in the sentence the current word is connected to.
+    The “thread” property will returns the root word the current word is connected to.
+    The “deprel” property (short for dependency relations) returns the relationship of the current word to the root word. '''
     self.__validate_text(text)
     return[f'ID: {word.id}, WORD: {word.text}, THREAD ID: {word.head}, THREAD: {sent.words[word.head-1].text if word.head > 0 else "root"}, DEPREL: {word.deprel} '
            for sent in self.document.sentences for word in sent.words]
