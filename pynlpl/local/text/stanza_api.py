@@ -1,4 +1,5 @@
 import stanza
+import pprint
 
 class Stanza_English_default():
   """Implements an abstracted version of the Stanza NLP library in English.
@@ -73,3 +74,17 @@ class Stanza_English_default():
     self.__validate_text(text)
     return[f'ID: {word.id}, WORD: {word.text}, THREAD ID: {word.head}, THREAD: {sent.words[word.head-1].text if word.head > 0 else "root"}, DEPREL: {word.deprel} '
            for sent in self.document.sentences for word in sent.words]
+
+
+  def ner_labeling(self, text = None, entities_only=True):
+    '''returns list of labeled entities from text document
+    user can choose:
+    -- only entities displayed / entities_only = True / returns a list of only the recognized and labeled enitites
+    -- every token/word displayed / entities_only = False / returns a list of every token in text document.
+    Entities are corrently labeled with BIOES NER tags
+    If the token is not an entity, a 0 is returned'''
+    self.__validate_text(text)
+    if entities_only:
+      return[f'TOKEN: {ent.text} TYPE: {ent.type}' for sent in self.document.sentences for ent in sent.ents]
+    else:
+      return[f'TOKEN: {token.text} NER: {token.ner}' for sent in self.document.sentences for token in sent.tokens]
