@@ -1,5 +1,4 @@
 import stanza
-import pprint
 
 class Stanza_English_default():
   """Implements an abstracted version of the Stanza NLP library in English.
