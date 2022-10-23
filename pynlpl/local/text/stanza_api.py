@@ -87,3 +87,10 @@ class Stanza_English_default():
       return[f'TOKEN: {ent.text} TYPE: {ent.type}' for sent in self.document.sentences for ent in sent.ents]
     else:
       return[f'TOKEN: {token.text} NER: {token.ner}' for sent in self.document.sentences for token in sent.tokens]
+
+
+  def sentiment_analysis(self, text = None):
+    '''returns 0 for negetive sentiment, 1 for neutral sentiment, and 2 for positive sentiment'''
+    self.__validate_text(text)
+    for sentence in self.document.sentences:
+      return("Sentiment Analysis Value: %d" % (sentence.sentiment))

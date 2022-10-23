@@ -27,3 +27,6 @@ def test_dependency_parsing():
 def test_ner_labeling():
   assert lang_model.ner_labeling(text_for_testing) == ['TOKEN: PyNLP TYPE: ORG', 'TOKEN: NLP TYPE: ORG', 'TOKEN: Python TYPE: ORG', 'TOKEN: The Text API TYPE: ORG']
   assert lang_model.ner_labeling(text_for_testing, entities_only=False) == ['TOKEN: PyNLP NER: S-ORG', 'TOKEN: is NER: O', 'TOKEN: the NER: O', 'TOKEN: universal NER: O', 'TOKEN: open NER: O', 'TOKEN: source NER: O', 'TOKEN: NLP NER: S-ORG', 'TOKEN: library NER: O', 'TOKEN: for NER: O', 'TOKEN: Python NER: S-ORG', 'TOKEN: . NER: O', 'TOKEN: It NER: O', 'TOKEN: is NER: O', 'TOKEN: maintained NER: O', 'TOKEN: by NER: O', 'TOKEN: The NER: B-ORG', 'TOKEN: Text NER: I-ORG', 'TOKEN: API NER: E-ORG', 'TOKEN: team NER: O', 'TOKEN: . NER: O']
+
+def test_sentiment_analysis():
+  assert lang_model.sentiment_analysis(text_for_testing) == "Sentiment Analysis Value: 1"
